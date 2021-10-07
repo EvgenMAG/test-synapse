@@ -9,16 +9,18 @@ export default function Navigation() {
   console.log(isAuthenticated);
 
   return (
-    <nav>
-      {isAuthenticated ? (
-        <NavLink to="/contacts" exact className={s.link}>
-          BROWSE
-        </NavLink>
-      ) : (
-        <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
-          HOME
-        </NavLink>
-      )}
+    <nav className={s.mainNav}>
+      <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
+        HOME
+      </NavLink>
+      <NavLink
+        to="/contacts"
+        exact
+        className={s.link}
+        activeClassName={s.activeLink}
+      >
+        BROWSE
+      </NavLink>
     </nav>
   );
 }

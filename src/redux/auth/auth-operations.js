@@ -15,7 +15,6 @@ import {
 
 const registerUser = credentials => async dispatch => {
   dispatch(userRegisterRequest());
-  console.log(credentials);
 
   try {
     dispatch(userRegisterSuccess(credentials));
@@ -28,9 +27,7 @@ const LoginUser = credentials => async dispatch => {
   dispatch(userLoginRequest());
 
   try {
-    const { data } = await axios.post('/users/login', credentials);
-
-    dispatch(userLoginSuccess(data));
+    dispatch(userLoginSuccess(credentials));
   } catch (error) {
     dispatch(userLoginError(error.message));
   }

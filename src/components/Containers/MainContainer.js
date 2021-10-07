@@ -13,7 +13,7 @@ const MainContainer = styled.div`
     padding-top: 10px;
     width: 425px;
 
-    background-color: yellow;
+    background-color: rgb(214, 214, 243, 0.4);
   }
 
   @media ${device.tablet} {
@@ -21,7 +21,7 @@ const MainContainer = styled.div`
     padding-right: 10px;
     width: 768px;
 
-    background-color: green;
+    background-color: rgb(152, 226, 198, 0.4);
   }
 
   @media ${device.desktop} {
@@ -30,7 +30,7 @@ const MainContainer = styled.div`
     padding-right: 15px;
     width: 1440px;
 
-    background-color: grey;
+    background-color: rgb(235, 163, 241, 0.4);
   }
 `;
 

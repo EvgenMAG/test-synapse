@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
+import avatar from '../../UserMenu/default-avatar.png';
+
 const Btn = styled.button`
   display: ${props => props.display};
   position: fixed;
@@ -11,13 +13,12 @@ const Btn = styled.button`
   font-size: 15px;
   border: none;
   outline: none;
-  background-color: red;
-  color: white;
   cursor: pointer;
   padding: 10px;
   border-radius: 4px;
+  background-color: transparent;
   &:hover {
-    background-color: #555;
+    transform: scale(1.4);
   }
 `;
 
@@ -45,7 +46,7 @@ export default function BtnTop() {
 
   return (
     <Btn display={btnVisibility} onClick={onBtnClick}>
-      TOP
+      <img src={avatar} alt="" width="60" />
     </Btn>
   );
 }

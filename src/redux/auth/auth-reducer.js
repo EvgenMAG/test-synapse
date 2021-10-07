@@ -14,7 +14,7 @@ const initialState = '';
 
 const userReducer = createReducer(initialState, {
   [userRegisterSuccess]: (_, { payload }) => payload,
-  [userLoginSuccess]: (_, { payload }) => payload.user,
+  // [userLoginSuccess]: (_, { payload }) => payload.user,
   [userLogoutSuccess]: (_, __) => initialState,
 });
 

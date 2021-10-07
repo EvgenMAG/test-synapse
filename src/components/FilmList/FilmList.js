@@ -1,16 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Operations, Selectors } from '../../redux/contacts';
 import React, { useEffect, useState } from 'react';
-import Modal from '../Modal/Modal';
 import data from '../../DB/imdb.json';
 
 import ThumbDownTwoToneIcon from '@material-ui/icons/ThumbDownAlt';
-
 import styled from 'styled-components';
 
-import { colors } from '@material-ui/core';
+import Modal from '../Modal/Modal';
+import Load from '../Loader/Loader';
 
-// import device from '../devices/device.js';
+import device from '../../devices/device';
 
 const Card = styled.li`
   width: calc((100% - 60px) / 2);
@@ -20,7 +17,7 @@ const Card = styled.li`
 `;
 
 const Link = styled.a`
-  display: inline-block;
+  display: block;
   text-decoration: none;
   cursor: pointer;
 `;
@@ -31,8 +28,8 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   display: block;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-height: 100%;
   opacity: 0.7;
 `;
 
@@ -49,6 +46,7 @@ const Title = styled.h2`
 const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   padding: 5px;
   border: 1px solid black;
   background-color: tomato;
@@ -83,10 +81,6 @@ export default function ContactList() {
   useEffect(() => {
     setOnPage(data.slice(0, perPage));
   }, [perPage]);
-
-  console.log(onPage.length);
-
-  console.log(data.length);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -123,30 +117,34 @@ export default function ContactList() {
     setRating(rating);
   }
 
-  console.log(window.onscroll);
-
   return (
     <>
       {!onPage ? (
-        <h1>Loading...</h1>
+        <Load />
       ) : (
         onPage.map(item => {
+          const {
+            id,
+            writer,
+            actors,
+            plot,
+            imdbrating,
+            title,
+            poster,
+            director,
+            year,
+            genre,
+          } = item;
+
           return (
-            <Card key={item.id}>
+            <Card key={id}>
               <Link
-                onClick={() =>
-                  onImageClick(
-                    item.writer,
-                    item.actors,
-                    item.plot,
-                    item.imdbrating,
-                  )
-                }
+                onClick={() => onImageClick(writer, actors, plot, imdbrating)}
               >
                 <ImageContainer>
-                  <Image src={item.poster} />
-                  <Title>{item.title}</Title>
-                  {item.imdbrating < 7 && (
+                  <Image src={poster} />
+                  <Title>{title}</Title>
+                  {imdbrating < 7 && (
                     <ThumbDownTwoToneIcon
                       style={{
                         fontSize: 'large',
@@ -161,13 +159,13 @@ export default function ContactList() {
 
                 <DescriptionContainer>
                   <DescriptionTitle>
-                    Director: <Description>{item.director}</Description>
+                    Director: <Description>{director}</Description>
                   </DescriptionTitle>
                   <DescriptionTitle>
-                    Year: <Description>{item.year}</Description>
+                    Year: <Description>{year}</Description>
                   </DescriptionTitle>
                   <DescriptionTitle>
-                    Genre: <Description>{item.genre}</Description>
+                    Genre: <Description>{genre}</Description>
                   </DescriptionTitle>
                 </DescriptionContainer>
               </Link>
@@ -180,10 +178,10 @@ export default function ContactList() {
         <Modal onClose={togleModal}>
           {writer && (
             <div>
+              <h2>{`Rating: ${rating}`}</h2>
               <h3>{`Writer: ${writer}`}</h3>
               <p>{`Actors: ${actors}`}</p>
               <p>{`Plot: ${plot}`}</p>
-              <h2>{`Rating: ${rating}`}</h2>
             </div>
           )}
         </Modal>

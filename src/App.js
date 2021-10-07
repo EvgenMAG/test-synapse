@@ -40,7 +40,7 @@ export default function App() {
           >
             <Login />
           </PublicRoute>
-          <PrivateRoute path={routes.contacts} redirectTo={routes.home}>
+          <PrivateRoute path={routes.contacts} redirectTo={routes.login}>
             <FilmsPage />
           </PrivateRoute>
           <Route />

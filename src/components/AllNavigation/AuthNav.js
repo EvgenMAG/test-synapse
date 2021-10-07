@@ -7,9 +7,6 @@ import { selectorsAuth } from '../../redux/auth';
 
 export default function AuthNav() {
   const resumeRegister = useSelector(selectorsAuth.getRegistrationStatus);
-  // const userNameLocalStorage = localStorage.getItem('userName');
-  // const userEmailLocalStorage = localStorage.getItem('userEmail');
-  // const userPasswordLocalStorage = localStorage.getItem('userPassword');
 
   return (
     <div>

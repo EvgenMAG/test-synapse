@@ -11,14 +11,15 @@ export default function UserMenu() {
 
   return (
     <div className={s.container}>
-      <img src={avatar} alt="" width="40" className={s.avatar} />
-      <span className={s.name}>Hi Dear {userName}</span>
-      <button
+      <span className={s.welcome}>Welcome</span>
+      <span className={s.name}>{userName}</span>
+      <a
         type="button"
+        className={s.btnLogOut}
         onClick={() => dispatch(OperationsAuth.LogoutUser())}
       >
         Logout
-      </button>
+      </a>
     </div>
   );
 }

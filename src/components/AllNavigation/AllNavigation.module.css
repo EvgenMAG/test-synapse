@@ -2,6 +2,7 @@ header {
   display: flex;
   margin-left: 50px;
   margin-right: 50px;
+  padding-bottom: 10px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #2a363b;
@@ -9,17 +10,23 @@ header {
 
 .link {
   display: inline-block;
+  padding: 5px;
   text-decoration: none;
-  padding: 20px;
-  font-weight: 700;
+  font-weight: 500;
   color: #2a363b;
-  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 12px;
 }
 
 .activeLink {
   color: #e84a5f;
 }
 
+.mainNav {
+  display: flex;
+}
 /* .button {
   display: inline-block;
   color: primary;

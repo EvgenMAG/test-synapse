@@ -5,6 +5,8 @@ import store from './redux/store';
 import 'modern-normalize/modern-normalize.css';
 import { BrowserRouter } from 'react-router-dom';
 
+import './index.css';
+
 import App from './App.js';
 
 ReactDom.render(
