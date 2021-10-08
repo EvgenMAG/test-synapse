@@ -4,6 +4,11 @@ import { OperationsAuth } from '../redux/auth';
 import { useDispatch } from 'react-redux';
 
 import FormContainer from '../components/Containers/FormContainer';
+import Form from '../components/Containers/Form';
+import Label from '../components/Containers/Label';
+import Input from '../components/Containers/Input';
+import BtnFormSubmit from '../components/Buttons/BtnFormSubmit';
+
 import s from './views.module.css';
 
 export default function RegisterView() {
@@ -31,29 +36,29 @@ export default function RegisterView() {
     <FormContainer>
       <h1 className={s.title}>Login</h1>
 
-      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-        <label className={s.label}>
+      <Form onSubmit={handleSubmit} className={s.form} autoComplete="off">
+        <Label className={s.label}>
           Email
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label className={s.label}>
+        <Label className={s.label}>
           Password
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Submit</button>
-      </form>
+        <BtnFormSubmit type="submit">Submit</BtnFormSubmit>
+      </Form>
     </FormContainer>
   );
 }

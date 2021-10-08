@@ -6,18 +6,22 @@ import { useSelector } from 'react-redux';
 import { selectorsAuth } from '../../redux/auth';
 
 export default function AuthNav() {
-  const resumeRegister = useSelector(selectorsAuth.getRegistrationStatus);
+  const userNameLocalStorage = localStorage.getItem('userName');
+  const userEmailLocalStorage = localStorage.getItem('userEmail');
+  const userPasswordLocalStorage = localStorage.getItem('userPassword');
 
   return (
     <div>
-      {!resumeRegister ? (
+      {!userNameLocalStorage ||
+      !userEmailLocalStorage ||
+      !userPasswordLocalStorage ? (
         <NavLink
           to="/register"
           exact
           className={s.link}
           activeClassName={s.activeLink}
         >
-          Sign up
+          SIGN UP
         </NavLink>
       ) : (
         <NavLink
@@ -26,7 +30,7 @@ export default function AuthNav() {
           className={s.link}
           activeClassName={s.activeLink}
         >
-          Resume Sign up
+          Resume SIGN UP
         </NavLink>
       )}
       <NavLink
@@ -35,7 +39,7 @@ export default function AuthNav() {
         className={s.link}
         activeClassName={s.activeLink}
       >
-        Login
+        LOG IN
       </NavLink>
     </div>
   );

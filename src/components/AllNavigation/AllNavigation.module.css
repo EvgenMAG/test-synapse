@@ -20,6 +20,22 @@ header {
   font-size: 12px;
 }
 
+@media screen and (min-width: 1440px) {
+  .link {
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #2a363b;
+    margin-left: 30px;
+    margin-right: 10px;
+    padding: 10px 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 18px;
+  }
+}
+
 .activeLink {
   color: #e84a5f;
 }
@@ -27,6 +43,12 @@ header {
 .mainNav {
   display: flex;
 }
+@media screen and (min-width: 1440px) {
+  .mainNav {
+    margin-bottom: 20px;
+  }
+}
+
 /* .button {
   display: inline-block;
   color: primary;

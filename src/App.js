@@ -1,15 +1,13 @@
-import React, { useEffect, Suspense, lazy } from 'react';
-
-import routes from './routes';
-import MainContainer from './components/Containers/MainContainer';
-import AppBar from './components/AllNavigation/AppBar';
-
-import { useDispatch } from 'react-redux';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router';
-import { OperationsAuth } from './redux/auth';
+import routes from './routes';
+
+import AppBar from './components/AllNavigation/AppBar';
 import Load from './components/Loader/Loader';
 import PrivateRoute from './/components/AllNavigation/PrivateRoute';
 import PublicRoute from './/components/AllNavigation/PublicRoute';
+
+import MainContainer from './components/StyledComponents/MainContainer';
 
 const HomePage = lazy(() => import('./views/HomePage'));
 const Register = lazy(() => import('./views/RegisterView'));

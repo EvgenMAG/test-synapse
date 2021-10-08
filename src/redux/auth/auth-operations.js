@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import {
   userLoginRequest,
   userLoginSuccess,

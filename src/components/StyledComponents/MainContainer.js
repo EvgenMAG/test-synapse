@@ -10,13 +10,14 @@ const MainContainer = styled.div`
   margin-right: auto;
 
   @media ${device.mobileL} {
-    padding-top: 10px;
+    padding-top: 20px;
     width: 425px;
 
     background-color: rgb(214, 214, 243, 0.4);
   }
 
   @media ${device.tablet} {
+    padding-top: 30px;
     padding-left: 10px;
     padding-right: 10px;
     width: 768px;

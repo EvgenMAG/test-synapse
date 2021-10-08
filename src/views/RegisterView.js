@@ -4,6 +4,10 @@ import { OperationsAuth } from '../redux/auth';
 import { useDispatch } from 'react-redux';
 import s from './views.module.css';
 import FormContainer from '../components/Containers/FormContainer';
+import Form from '../components/Containers/Form';
+import Label from '../components/Containers/Label';
+import Input from '../components/Containers/Input';
+import BtnFormSubmit from '../components/Buttons/BtnFormSubmit';
 
 import useInput from '../components/Hooks/useInput';
 import checkLocalStoradge from '../components/Utils/checkLocalStoradge';
@@ -19,20 +23,6 @@ export default function RegisterView() {
     checkLocalStoradge('userName', name.onStorageHandler);
     checkLocalStoradge('userEmail', email.onStorageHandler);
     checkLocalStoradge('userPassword', password.onStorageHandler);
-
-    return function () {
-      console.log('Hi');
-      const userNameLocalStorage = localStorage.getItem('userName');
-      const userEmailLocalStorage = localStorage.getItem('userEmail');
-      const userPasswordLocalStorage = localStorage.getItem('userPassword');
-      if (
-        userNameLocalStorage ||
-        userEmailLocalStorage ||
-        userPasswordLocalStorage
-      ) {
-        disputch(OperationsAuth.ResumeRegister());
-      }
-    };
   }, []);
 
   const handleLocalStoradge = e => {
@@ -72,13 +62,13 @@ export default function RegisterView() {
     <FormContainer>
       <h1 className={s.title}>Registraion</h1>
 
-      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-        <label className={s.label}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Label>
           Name
           {name.isDirty && name.isEmpty && (
             <div style={{ color: 'red' }}> The field should not be empty</div>
           )}
-          <input
+          <Input
             type="text"
             name="name"
             value={name.value}
@@ -88,9 +78,9 @@ export default function RegisterView() {
             }}
             onFocus={name.onBlur}
           />
-        </label>
+        </Label>
 
-        <label className={s.label}>
+        <Label>
           Email
           {email.isDirty && email.isEmpty && (
             <div style={{ color: 'red' }}> The field should not be empty</div>
@@ -98,7 +88,7 @@ export default function RegisterView() {
           {email.isDirty && email.emailError && (
             <div style={{ color: 'red' }}> Please enter correct email</div>
           )}
-          <input
+          <Input
             type="email"
             name="email"
             value={email.value}
@@ -108,9 +98,9 @@ export default function RegisterView() {
             }}
             onBlur={email.onBlur}
           />
-        </label>
+        </Label>
 
-        <label className={s.label}>
+        <Label>
           Password
           {password.isDirty && password.isEmpty && (
             <div style={{ color: 'red' }}>The field should not be empty</div>
@@ -121,7 +111,7 @@ export default function RegisterView() {
               special){' '}
             </div>
           )}
-          <input
+          <Input
             type="password"
             name="password"
             value={password.value}
@@ -131,17 +121,17 @@ export default function RegisterView() {
             }}
             onBlur={password.onBlur}
           />
-        </label>
+        </Label>
 
-        <button
+        <BtnFormSubmit
           type="submit"
           disabled={
             !email.inputValid || !name.inputValid || !password.inputValid
           }
         >
           Submit
-        </button>
-      </form>
+        </BtnFormSubmit>
+      </Form>
     </FormContainer>
   );
 }

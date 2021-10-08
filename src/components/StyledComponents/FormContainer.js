@@ -8,5 +8,19 @@ const FormContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media ${device.tablet} {
+    width: 400px;
+  }
+
+  @media ${device.desktop} {
+    width: 400px;
+
+    padding-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 `;
 export default FormContainer;
