@@ -3,11 +3,11 @@ import { OperationsAuth } from '../redux/auth';
 
 import { useDispatch } from 'react-redux';
 import s from './views.module.css';
-import FormContainer from '../components/Containers/FormContainer';
-import Form from '../components/Containers/Form';
-import Label from '../components/Containers/Label';
-import Input from '../components/Containers/Input';
-import BtnFormSubmit from '../components/Buttons/BtnFormSubmit';
+import FormContainer from '../components/StyledComponents/FormContainer';
+import Form from '../components/StyledComponents/Form';
+import Label from '../components/StyledComponents/Label';
+import Input from '../components/StyledComponents/Input';
+import BtnFormSubmit from '../components/StyledComponents/BtnFormSubmit';
 
 import useInput from '../components/Hooks/useInput';
 import checkLocalStoradge from '../components/Utils/checkLocalStoradge';
